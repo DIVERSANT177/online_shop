@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
       redirect_to products_path, notice: "Продукт успешо создан."
     else
       render :new, status: :unprocessable_entity
+      puts @product.errors.full_messages
     end
   end
 
@@ -36,6 +37,7 @@ class ProductsController < ApplicationController
       redirect_to products_path, notice: "Продукт успешно обновлен."
     else
       render :edit, status: :unprocessable_entity
+      puts @product.errors.full_messages
     end
   end
 
