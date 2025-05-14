@@ -22,7 +22,24 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="<%= controller.controller_name %>">
+    <header class="bg-light py-3 mb-4">
+    <div class="container d-flex align-items-center justify-content-between">
+      <!-- Логотип -->
+      <a href="#" class="d-block"><%= image_tag("logo.png", height: 50) %></a>
+
+      <!-- Навигационные ссылки -->
+      <nav class="d-flex gap-4">
+        <a href="#" class="text-decoration-none text-dark">Главная</a>
+        <a href="#" class="text-decoration-none text-dark">Вопросы</a>
+        <a href="#" class="text-decoration-none text-dark">Новости</a>
+        <a href="#" class="text-decoration-none text-dark">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="main">
+      <%= yield %>
+  </div>
   </body>
 </html>
