@@ -1,0 +1,31 @@
+<div class="w-full">
+    <% if notice.present? %>
+</div>
+
+<p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg" id="notice">
+    <%= notice %>
+</p>
+
+<% end %>
+
+<div class="m-3"> 
+    <h1 class="font-bold text-xl mb-5 pb-2 border-b-2">Ваш каталог</h1>
+
+    <ul class="list-unstyled">
+        <% @products.each do |product| %>
+            <li class="d-flex mb-5 gap-3">
+                <%= image_tag(product.image_url, class: 'object-fit-contain w-25 shadow mr-5') %>
+                <div class="">
+                    <h2 class="font-bold text-lg mb-3"><%= product.title %></h2>
+                    <p>
+                        <%= sanitize(product.description) %>
+                    </p>
+                    <div class="mt-3">
+                        <%= product.price %>
+                    </div>
+                </div>
+            </li>
+        <% end %>
+    </ul>
+</div>
+

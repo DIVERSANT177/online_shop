@@ -22,7 +22,7 @@ description:
 %(
   Подробное описание второго товара
 ),
-image_url: 'ruby.jpg',
+image_url: '123.jpg',
 price: 20.25)
 
 Product.create!(title: 'Товар3',
@@ -30,5 +30,5 @@ description:
 %(
   Подробное описание третьего товара
 ),
-image_url: 'ruby.jpg',
+image_url: 'image.jpeg',
 price: 123)
