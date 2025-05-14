@@ -15,7 +15,7 @@
         <% @products.each do |product| %>
             <li class="d-flex mb-5 gap-3">
                 <%= image_tag(product.image_url, class: 'object-fit-contain w-25 shadow mr-5') %>
-                <div class="">
+                <div>
                     <h2 class="font-bold text-lg mb-3"><%= product.title %></h2>
                     <p>
                         <%= sanitize(product.description) %>
@@ -23,6 +23,7 @@
                     <div class="price mt-3">
                         <%= number_to_currency(product.price) %>
                     </div>
+                    <%= button_to 'Добавить в корзину', line_items_path(product_id: product), class: "btn btn-primary" %>
                 </div>
             </li>
         <% end %>
