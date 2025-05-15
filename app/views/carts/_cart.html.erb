@@ -1,24 +1,35 @@
-<h2 class="ms-5">Корзина</h2>
+<% unless cart.line_items.empty? %>
+  <h2 class="ms-5">Корзина</h2>
 
-<div class="table-responsive mx-5">
-  <table class="table table-bordered table-hover">
-      <thead class="table-dark">
-          <tr>
-              <th>Название товара</th>
-              <th>Количество</th>
-              <th>Стоимость (за шт.)</th>
-              <th>Итого по позиции</th>
-              <th>Действия</th>
-          </tr>
-      </thead>
-      <tbody id="cart-items">
-        <%= render(cart.line_items) %>
-      </tbody>
-  </table>
-  <div class="d-flex justify-content-end">
-    <h4>Общая сумма: <span id="total-sum"><%= number_to_currency(cart.total_price) %></span></h4>
+  <div class="table-responsive mx-5">
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Название товара</th>
+                <th>Количество</th>
+                <th>Стоимость (за шт.)</th>
+                <th>Итого по позиции</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+          <%= render(cart.line_items) %>
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-end">
+      <h4>Общая сумма: <span id="total-sum"><%= number_to_currency(cart.total_price) %></span></h4>
+    </div>
   </div>
-</div>
-<div class="d-flex justify-content-end">
-  <%= button_to 'Очистить корзину', @cart, method: :delete, data: { confirm: 'Вы уверены?' }, class: "me-5 btn btn-danger" %>
-</div>
+  <div class="d-flex justify-content-end">
+    <%= button_to 'Очистить корзину', @cart, method: :delete, data: { confirm: 'Вы уверены?' }, class: "me-5 btn btn-danger" %>
+  </div>
+
+<% else %>
+  <div>
+    <h3>
+      Корзина пуста, добавьте товары
+    </h3>
+  </div>
+<% end %>
+
+
