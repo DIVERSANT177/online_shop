@@ -5,6 +5,7 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
     @line_item = line_items(:one)
 
     @test1 = products(:ruby)
+    @cart1 = carts(:one)
   end
 
   test "should get index" do
@@ -44,10 +45,12 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy line_item" do
+    post line_items_path, params: { product_id: @test1.id }
+    debugger
     assert_difference("LineItem.count", -1) do
-      delete line_item_url(@line_item)
+      delete line_item_url(LineItem.last.id)
     end
 
-    assert_redirected_to line_items_url
+    assert_redirected_to cart_path
   end
 end

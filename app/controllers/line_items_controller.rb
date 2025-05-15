@@ -53,7 +53,6 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1 or /line_items/1.json
   def destroy
     @line_item.destroy!
-
     respond_to do |format|
       format.html { redirect_to @line_item.cart, status: :see_other, notice: "Позиция удалена" }
       format.json { head :no_content }
