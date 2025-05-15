@@ -8,12 +8,12 @@
 
 <% end %>
 
-<div class="m-3"> 
+<div class="m-3 store"> 
     <h1 class="font-bold text-xl mb-5 pb-2 border-b-2">Ваш каталог</h1>
     <ul class="list-unstyled">
         <% @products.each do |product| %>
             <li class="d-flex mb-5 gap-3">
-                <%= image_tag(product.image_url, class: 'object-fit-contain w-25 shadow mr-5') %>
+                <%= image_tag(product.image_url, data: { product_id: product.id }, class: 'object-fit-contain w-25 shadow mr-5') %>
                 <div>
                     <h2 class="font-bold text-lg mb-3"><%= product.title %></h2>
                     <p>
