@@ -1,9 +1,36 @@
 <p style="color: green"><%= notice %></p>
 
-<h2>Корзина</h2>
+<h2 class="ms-5">Корзина</h2>
 
-<ul>
-  <% @cart.line_items.each do |item| %>
-    <li><%= item.quantity %> &times; <%= item.product.title %></li>
-  <% end %>
-</ul>
+
+<div class="table-responsive mx-5">
+  <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+          <tr>
+              <th>Название товара</th>
+              <th>Количество</th>
+              <th>Стоимость (за шт.)</th>
+              <th>Итого по позиции</th>
+              <th>Действия</th>
+          </tr>
+      </thead>
+      <tbody id="cart-items">
+        <% @cart.line_items.each do |item| %>
+          <tr>
+            <td><%= item.product.title %></td>
+            <td><%= item.quantity %></td>
+            <td><%= number_to_currency(item.product.price) %></td>
+            <td><%= number_to_currency(item.total_price) %></td>
+            <td><%= button_to 'Удалить позицию', item, method: :delete, confirm: 'Вы уверены?', class: "me-5 btn btn-danger" %></td>
+            </tr>
+        <% end %>
+      </tbody>
+  </table>
+  <div class="d-flex justify-content-end">
+    <h4>Общая сумма: <span id="total-sum"><%= number_to_currency(@cart.total_price) %></span></h4>
+  </div>
+</div>
+
+<div class="d-flex justify-content-end">
+  <%= button_to 'Очистить корзину', @cart, method: :delete, data: { confirm: 'Вы уверены?' }, class: "me-5 btn btn-danger" %>
+</div>

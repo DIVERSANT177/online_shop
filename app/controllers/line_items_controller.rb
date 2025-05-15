@@ -28,7 +28,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: "Line item was successfully created." }
+        format.html { redirect_to @line_item.cart }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class LineItemsController < ApplicationController
     @line_item.destroy!
 
     respond_to do |format|
-      format.html { redirect_to line_items_path, status: :see_other, notice: "Line item was successfully destroyed." }
+      format.html { redirect_to @line_item.cart, status: :see_other, notice: "Позиция удалена" }
       format.json { head :no_content }
     end
   end
