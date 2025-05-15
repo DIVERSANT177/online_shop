@@ -29,12 +29,28 @@
         <a href="#" class="d-block"><%= image_tag("logo.png", height: 50) %></a>
 
         <!-- Навигационные ссылки -->
-        <nav class="d-flex gap-4">
+        <nav class="d-flex gap-4 align-items-center">
           <a href="#" class="text-decoration-none text-dark">Главная</a>
           <a href="#" class="text-decoration-none text-dark">Вопросы</a>
           <a href="#" class="text-decoration-none text-dark">Новости</a>
           <a href="#" class="text-decoration-none text-dark">Контакты</a>
+          
+
         </nav>
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            Открыть меню
+          </button>
+
+          <!-- Боковое меню (Offcanvas) -->
+          <div class="offcanvas offcanvas-start w-100" tabindex="-1" id="sidebarMenu">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title">Меню</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+              <%= render(@cart) unless @cart.nil? %>
+            </div>
+          </div>
       </div>
   </header>
 

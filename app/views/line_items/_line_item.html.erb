@@ -1,12 +1,7 @@
-<div id="<%= dom_id line_item %>">
-  <p>
-    <strong>Product:</strong>
-    <%= line_item.product_id %>
-  </p>
-
-  <p>
-    <strong>Cart:</strong>
-    <%= line_item.cart_id %>
-  </p>
-
-</div>
+<tr>
+  <td><%= line_item.product.title %></td>
+  <td><%= line_item.quantity %></td>
+  <td><%= number_to_currency(line_item.product.price) %></td>
+  <td><%= number_to_currency(line_item.total_price) %></td>
+  <td><%= button_to 'Удалить позицию', line_item, method: :delete, confirm: 'Вы уверены?', class: "me-5 btn btn-danger" %></td>
+</tr>
