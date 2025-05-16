@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-    @orders = Order.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    @orders = Order.order(created_at: :desc).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html

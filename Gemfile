@@ -21,7 +21,10 @@ gem "bootstrap", "~> 5.3.3"
 
 gem "jquery-rails"
 
-gem "will_paginate", "~> 3.3.1"
+gem "kaminari"
+# gem "will_paginate", "~> 3.3.1"
+
+gem "administrate",  git: "https://github.com/thoughtbot/administrate.git", branch: "main"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 

@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :carts
+      resources :orders
+      resources :products
+
+      root to: "carts#index"
+    end
   resources :orders
   resources :line_items
   resources :carts
