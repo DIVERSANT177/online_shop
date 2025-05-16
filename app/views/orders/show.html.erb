@@ -1,10 +1,17 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @order %>
-
-<div>
-  <%= link_to "Edit this order", edit_order_path(@order) %> |
-  <%= link_to "Back to orders", orders_path %>
-
-  <%= button_to "Destroy this order", @order, method: :delete %>
+<table class="table table-bordered table-hover">
+  <thead class="table-dark">
+      <tr>
+          <th>Название товара</th>
+          <th>Количество</th>
+          <th>Стоимость (за шт.)</th>
+          <th>Итого по позиции</th>
+      </tr>
+  </thead>
+  <tbody id="cart-items">
+    <%= render partial: 'line_items/line_item', collection: @order.line_items, as: :line_item %>
+  </tbody>
+</table>
+<div class="text-center">
+  <%= link_to "Вернуться к заказам", orders_path, class: "btn btn-light" %>
 </div>

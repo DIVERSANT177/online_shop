@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody id="cart-items">
-          <%= render(cart.line_items) %>
+          <%= render partial: 'line_items/line_item_with_btn', collection: cart.line_items, as: :line_item %>
         </tbody>
     </table>
     <div class="d-flex justify-content-end">
