@@ -3,7 +3,11 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+
+    respond_to do |format|
+      format.html
+    end
   end
 
   # GET /orders/1 or /orders/1.json
@@ -48,7 +52,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to @order, notice: "Order was successfully updated." }
+        format.html { redirect_to orders_path, notice: "Заказ был обновлен" }
         format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -62,7 +66,7 @@ class OrdersController < ApplicationController
     @order.destroy!
 
     respond_to do |format|
-      format.html { redirect_to orders_path, status: :see_other, notice: "Order was successfully destroyed." }
+      format.html { redirect_to orders_path, status: :see_other, notice: "Заказ был удален" }
       format.json { head :no_content }
     end
   end
