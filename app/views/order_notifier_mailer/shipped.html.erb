@@ -1,5 +1,19 @@
-<h1>OrderNotifier#shipped</h1>
+<h1>Уведомление</h1>
 
 <p>
-  <%= @greeting %>, find me in app/views/order_notifier_mailer/shipped.html.erb
+  Привет, <%= @order.name %><br>
+  Был отправлен заказ:<br>
+  <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Название товара</th>
+                <th>Количество</th>
+                <th>Стоимость (за шт.)</th>
+                <th>Итого по позиции</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+          <%= render partial: 'line_items/line_item', collection: @order.line_items, as: :line_item %>
+        </tbody>
+    </table>
 </p>

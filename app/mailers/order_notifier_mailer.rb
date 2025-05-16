@@ -6,9 +6,7 @@ class OrderNotifierMailer < ApplicationMailer
   #   en.order_notifier_mailer.received.subject
   #
   def received(order)
-    @greeting = "Привет"
     @order = order
-
     mail to: order.email, subject: "Подтверждение заказа"
   end
 
@@ -18,8 +16,7 @@ class OrderNotifierMailer < ApplicationMailer
   #   en.order_notifier_mailer.shipped.subject
   #
   def shipped
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    @order = order
+    mail to: order.email, subject: "Отправка заказа"
   end
 end
