@@ -1,0 +1,12 @@
+<% content_for :title, "New order" %>
+<div class="w-25 mx-auto">
+<h1>Новый заказ</h1>
+
+<%= render "form", order: @order %>
+
+<br>
+
+<div class="text-center">
+  <%= link_to "Вернуться в каталог", store_index_path, class: "btn btn-light" %>
+</div>
+</div>

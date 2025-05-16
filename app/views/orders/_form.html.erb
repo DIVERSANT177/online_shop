@@ -1,0 +1,37 @@
+<%= form_with(model: order) do |form| %>
+  <% if order.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+        <% order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :Имя, style: "display: block", class: "form-label" %>
+    <%= form.text_field :name, size: 40, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :Адрес, style: "display: block", class: "form-label" %>
+    <%= form.text_area :address, rows: 3, size: 40, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :Почта, style: "display: block", class: "form-label" %>
+    <%= form.email_field :email, size: 40, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :"Тип оплаты", style: "display: block", class: "form-label" %>
+    <%= form.select :pay_type, Order::PAYMENT_TYPES, { prompt: "Выберите тип оплаты" }, { class: "form-select" } %>
+  </div>
+
+  <div class="mt-3 text-center">
+    <%= form.submit :Оформить, class: "btn btn-primary" %>
+  </div>
+<% end %>

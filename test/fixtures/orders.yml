@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Ivan
+  address: Volgograd
+  email: iv.ya@list.ru
+  pay_type: "Дебетовая карта"
+
+two:
+  name: MyString
+  address: MyText
+  email: MyString
+  pay_type: MyString

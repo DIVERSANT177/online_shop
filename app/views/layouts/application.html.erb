@@ -30,7 +30,7 @@
 
         <!-- Навигационные ссылки -->
         <nav class="d-flex gap-4 align-items-center">
-          <a href="#" class="text-decoration-none text-dark">Главная</a>
+          <a href="<%= store_index_url %>" class="text-decoration-none text-dark">Главная</a>
           <a href="#" class="text-decoration-none text-dark">Вопросы</a>
           <a href="#" class="text-decoration-none text-dark">Новости</a>
           <a href="#" class="text-decoration-none text-dark">Контакты</a>
@@ -48,7 +48,9 @@
               <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
             </div>
             <div class="offcanvas-body">
-              <%= render(@cart) unless @cart.nil? %>
+              <div id="cart">
+                <%= render(@cart) unless @cart.nil? %>
+              </div>
             </div>
           </div>
       </div>
