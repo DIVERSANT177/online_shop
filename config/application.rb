@@ -23,6 +23,6 @@ module OnlineShop
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.session_store :cookie_store, same_site: :lax, expire_after: 20.seconds
+    # config.session_store :cookie_store, same_site: :lax, expire_after: 20.seconds
   end
 end
