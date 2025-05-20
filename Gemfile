@@ -25,6 +25,8 @@ gem "kaminari"
 # gem "will_paginate", "~> 3.3.1"
 
 gem "administrate",  git: "https://github.com/thoughtbot/administrate.git", branch: "main"
+
+gem "cancancan"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
@@ -74,3 +76,5 @@ group :test do
 end
 
 gem "dartsass-rails", "~> 0.5.1"
+
+gem "devise", "~> 4.9"

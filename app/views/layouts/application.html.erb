@@ -34,25 +34,31 @@
           <a href="#" class="text-decoration-none text-dark">Вопросы</a>
           <a href="#" class="text-decoration-none text-dark">Новости</a>
           <a href="#" class="text-decoration-none text-dark">Контакты</a>
-          
-
         </nav>
+
+        <div>
+          <% if current_user %>
+          Привет, <%= current_user.email %>
+          <%= link_to "Выйти", destroy_user_session_path, method: :delete, class: "btn btn-primary" %><br />
+          <% end %>
+        </div>
+
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
             Открыть меню
-          </button>
+        </button>
 
-          <!-- Боковое меню (Offcanvas) -->
-          <div class="offcanvas offcanvas-start w-100" tabindex="-1" id="sidebarMenu">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title">Меню</h5>
-              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-            </div>
-            <div class="offcanvas-body">
-              <div id="cart">
-                <%= render(@cart) unless @cart.nil? %>
-              </div>
+        <!-- Боковое меню (Offcanvas) -->
+        <div class="offcanvas offcanvas-start w-100" tabindex="-1" id="sidebarMenu">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Меню</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+          </div>
+          <div class="offcanvas-body">
+            <div id="cart">
+              <%= render(@cart) unless @cart.nil? %>
             </div>
           </div>
+        </div>
       </div>
   </header>
 

@@ -32,3 +32,6 @@ description:
 ),
 image_url: 'image.jpeg',
 price: 123)
+
+Role.create(name: 'user')
+Role.create(name: 'admin')

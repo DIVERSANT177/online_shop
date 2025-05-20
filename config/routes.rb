@@ -1,17 +1,23 @@
 Rails.application.routes.draw do
-  namespace :admin do
+  devise_for :users
+  authenticate :user, ->(user) { user.admin? } do
+    namespace :admin do
       resources :carts
       resources :orders
       resources :products
 
       root to: "carts#index"
     end
+  end
+
   resources :orders
   resources :line_items
   resources :carts
   get "store/index"
   resources :products
   get "say/hello"
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

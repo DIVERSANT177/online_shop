@@ -1,9 +1,15 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  load_and_authorize_resource
 
   # GET /orders or /orders.json
   def index
-    @orders = Order.order(created_at: :desc).page(params[:page]).per(10)
+    if current_user.admin?
+      @orders = Order.order(created_at: :desc).page(params[:page]).per(10)
+    else
+      @orders = current_user.orders.order(created_at: :desc).page(params[:page]).per(10)
+    end
 
     respond_to do |format|
       format.html
@@ -33,6 +39,11 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(current_cart)
+    if user_signed_in?
+      @order.user_id = current_user.id
+    else
+      @order.user = User.find_by(email: @order.email)
+    end
 
     respond_to do |format|
       if @order.save

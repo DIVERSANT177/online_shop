@@ -12,7 +12,9 @@
                 <th>Адрес</th>
                 <th>Email</th>
                 <th>Тип оплаты</th>
-                <th>Действия</th>
+                <% if current_user.admin? %>
+                    <th>Действия</th>
+                <% end %>
             </tr>
         </thead>
         <tbody id="orders-items">
