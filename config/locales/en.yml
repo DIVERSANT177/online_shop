@@ -1,31 +1,47 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  hello: "Hello, "
+  product:
+    name: "Product Name"
+    count: "Quantity"
+    price: "Price per unit"
+    sum_price_product: "Total for the item"
+    sum_price: "Total"
+  btn:
+    new: "Create"
+    form: "Place Order"
+    update: "Edit"
+    delete: "Delete"
+    add_to_cart: "Add to Cart"
+    log_out: "Log Out"
+    open_menu: "Open Menu"
+    back: "Back"
+    view_order: "View Order"
+  links:
+    home: "Home"
+    question: "Questions"
+    news: "News"
+    contacts: "Contacts"
+  pages:
+    cart: "Cart"
+    carts: "Carts List"
+    store: "Catalog"
+    menu: "Menu"
+    orders: "Orders"
+    actions: "Actions"
+  carts:
+    show_cart: "Show Cart"
+    new_cart: "New Cart"
+    empty_cart: "Cart is empty, add products"
+    new_order: "Place an Order"
+  order:
+    name: "Name"
+    address: "Address"
+    email: "Email"
+    payment_type: "Payment Type"
+    choose_payment_type: "Choose Payment Type"
+    new: "New Order"
+    debit_card: "Debit Card"
+    credit_card: "Credit Card"
+    update: "Edit Order"
+  mail:
+    you_ordered: "You have ordered"

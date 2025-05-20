@@ -1,15 +1,15 @@
 <% unless cart.line_items.empty? %>
-  <h2 class="ms-5">Корзина</h2>
+  <h2 class="ms-5"><%= t('pages.cart') %></h2>
 
   <div class="table-responsive mx-5">
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
             <tr>
-                <th>Название товара</th>
-                <th>Количество</th>
-                <th>Стоимость (за шт.)</th>
-                <th>Итого по позиции</th>
-                <th>Действия</th>
+                <th><%= t('product.name') %></th>
+                <th><%= t('product.count') %></th>
+                <th><%= t('product.price') %></th>
+                <th><%= t('product.sum_price_product') %></th>
+                <th><%= t('product.actions') %></th>
             </tr>
         </thead>
         <tbody id="cart-items">
@@ -17,20 +17,20 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-end">
-      <h4>Общая сумма: <span id="total-sum"><%= number_to_currency(cart.total_price) %></span></h4>
+      <h4><%= t('product.sum_price') %>: <span id="total-sum"><%= number_to_currency(cart.total_price) %></span></h4>
     </div>
   </div>
   <div class="d-flex justify-content-end">
-    <%= button_to 'Оформить заказ', new_order_path, method: :get, class: "mb-3 me-5 btn btn-success" %>
+    <%= button_to t('btn.form'), new_order_path, method: :get, class: "mb-3 me-5 btn btn-success" %>
   </div>
   <div class="d-flex justify-content-end">
-    <%= button_to 'Очистить корзину', @cart, method: :delete, data: { confirm: 'Вы уверены?' }, class: "me-5 btn btn-danger" %>
+    <%= button_to t('btn.delete'), @cart, method: :delete, data: { confirm: 'Вы уверены?' }, class: "me-5 btn btn-danger" %>
   </div>
 
 <% else %>
   <div>
     <h3>
-      Корзина пуста, добавьте товары
+      <%= t('carts.empty_cart') %>
     </h3>
   </div>
 <% end %>

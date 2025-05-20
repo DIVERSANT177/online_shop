@@ -2,18 +2,18 @@
 
 <% content_for :title, "Orders" %>
 
-<h1>Заказы</h1>
+<h1><%= t('pages.orders') %></h1>
 
 <div class="table-responsive mx-5">
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
             <tr>
-                <th>Имя заказчика</th>
-                <th>Адрес</th>
-                <th>Email</th>
-                <th>Тип оплаты</th>
+                <th><%= t('order.name') %></th>
+                <th><%= t('order.address') %></th>
+                <th><%= t('order.email') %></th>
+                <th><%= t('order.payment_type') %></th>
                 <% if current_user.admin? %>
-                    <th>Действия</th>
+                    <th><%= t('pages.actions') %></th>
                 <% end %>
             </tr>
         </thead>

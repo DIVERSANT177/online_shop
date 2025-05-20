@@ -30,27 +30,33 @@
 
         <!-- Навигационные ссылки -->
         <nav class="d-flex gap-4 align-items-center">
-          <a href="<%= store_index_url %>" class="text-decoration-none text-dark">Главная</a>
-          <a href="#" class="text-decoration-none text-dark">Вопросы</a>
-          <a href="#" class="text-decoration-none text-dark">Новости</a>
-          <a href="#" class="text-decoration-none text-dark">Контакты</a>
+          <a href="<%= store_index_url %>" class="text-decoration-none text-dark"><%= t('links.home') %></a>
+          <a href="#" class="text-decoration-none text-dark"><%= t('links.question') %></a>
+          <a href="#" class="text-decoration-none text-dark"><%= t('links.news') %></a>
+          <a href="#" class="text-decoration-none text-dark"><%= t('links.contacts') %></a>
         </nav>
 
         <div>
           <% if current_user %>
-          Привет, <%= current_user.email %>
-          <%= link_to "Выйти", destroy_user_session_path, method: :delete, class: "btn btn-primary" %><br />
+          <%= t('hello') + current_user.email %>
+          <%= link_to t('btn.log_out'), destroy_user_session_path, method: :delete, class: "btn btn-primary" %><br />
           <% end %>
         </div>
 
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
-            Открыть меню
+            <%= t('btn.open_menu') %>
         </button>
+
+        <div>
+          <% I18n.available_locales.each do |locale| %>
+            <%= link_to t("language_names.#{locale}"), url_for(locale: locale) %>
+          <% end %>
+        </div>
 
         <!-- Боковое меню (Offcanvas) -->
         <div class="offcanvas offcanvas-start w-100" tabindex="-1" id="sidebarMenu">
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Меню</h5>
+            <h5 class="offcanvas-title"><%= t('pages.menu') %></h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
           </div>
           <div class="offcanvas-body">

@@ -20,5 +20,6 @@ class Ability
     can :manage, Admin
     can :manage, Cart
     can :manage, Product
+    can :manage, Order
   end
 end

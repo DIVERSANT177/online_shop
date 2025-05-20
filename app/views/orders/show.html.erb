@@ -2,10 +2,10 @@
 <table class="table table-bordered table-hover">
   <thead class="table-dark">
       <tr>
-          <th>Название товара</th>
-          <th>Количество</th>
-          <th>Стоимость (за шт.)</th>
-          <th>Итого по позиции</th>
+          <th><%= t('product.name') %></th>
+          <th><%= t('product.count') %></th>
+          <th><%= t('product.price') %></th>
+          <th><%= t('product.sum_price_product') %></th>
       </tr>
   </thead>
   <tbody id="cart-items">
@@ -13,5 +13,5 @@
   </tbody>
 </table>
 <div class="text-center">
-  <%= link_to "Вернуться к заказам", orders_path, class: "btn btn-light" %>
+  <%= link_to t('btn.back'), orders_path, class: "btn btn-light" %>
 </div>

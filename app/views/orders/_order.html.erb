@@ -6,8 +6,8 @@
   <td><%= order.pay_type %></td>
   <% if current_user.admin? %>
     <td>
-      <%= button_to 'Изменить', edit_order_path(order), method: :get, class: "btn btn-secondary mb-3" %>
-      <%= button_to 'Удалить', order, method: :delete, class: "btn btn-danger mb-3" %>
+      <%= button_to t('btn.update'), edit_order_path(order), method: :get, class: "btn btn-secondary mb-3" %>
+      <%= button_to t('btn.delete'), order, method: :delete, class: "btn btn-danger mb-3" %>
     </td>
   <% end %>
 </tr>

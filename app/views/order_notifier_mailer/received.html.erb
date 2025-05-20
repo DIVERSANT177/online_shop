@@ -1,15 +1,15 @@
 <h1>Уведомление</h1>
 
 <p>
-  Привет, <%= @order.name %><br>
-  Вы заказали:<br>
+  <%= t('hello') + @order.name %><br>
+  <%= t('mail.you_ordered') %>:<br>
   <table class="table table-bordered table-hover">
         <thead class="table-dark">
             <tr>
-                <th>Название товара</th>
-                <th>Количество</th>
-                <th>Стоимость (за шт.)</th>
-                <th>Итого по позиции</th>
+                <th><%= t('product.name') %></th>
+                <th><%= t('product.count') %></th>
+                <th><%= t('product.price') %></th>
+                <th><%= t('product.sum_price_product') %></th>
             </tr>
         </thead>
         <tbody id="cart-items">

@@ -1,15 +1,13 @@
 <div class="w-full">
     <% if notice.present? %>
-
-
-<p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg" id="notice">
-    <%= notice %>
-</p>
-
-<% end %>
+        <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg" id="notice">
+            <%= notice %>
+        </p>
+    <% end %>
 </div>
+
 <div class="m-3 store"> 
-    <h1 class="font-bold text-xl mb-5 pb-2 border-b-2">Каталог</h1>
+    <h1 class="font-bold text-xl mb-5 pb-2 border-b-2"><%= t('pages.store') %></h1>
     <ul class="list-unstyled">
         <% @products.each do |product| %>
             <li class="d-flex mb-5 gap-3">
@@ -22,7 +20,7 @@
                     <div class="price mt-3">
                         <%= number_to_currency(product.price) %>
                     </div>
-                    <%= button_to 'Добавить в корзину', line_items_path(product_id: product.id), class: "btn btn-primary", remote: true, data: { turbo: false }%>
+                    <%= button_to t('btn.add_to_cart'), line_items_path(product_id: product.id), class: "btn btn-primary", remote: true, data: { turbo: false }%>
                 </div>
             </li>
         <% end %>

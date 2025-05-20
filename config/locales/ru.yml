@@ -1,0 +1,53 @@
+ru:
+  hello: "Привет, "
+  product:
+    name: "Название товара"
+    count: "Количество"
+    price: "Цена за ед."
+    sum_price_product: "Итого по позиции"
+    sum_price: "Итого"
+  btn:
+    new: "Создать"
+    form: "Оформить"
+    update: "Изменить"
+    delete: "Удалить"
+    add_to_cart: "Добавить в корзину"
+    log_out: "Выйти"
+    open_menu: "Открыть меню"
+    back: "Вернуться"
+    view_order: "Посмотреть заказ"
+  links:
+    home: "Главная"
+    question: "Вопросы"
+    news: "Новости"
+    contacts: "Контакты"
+  pages:
+    cart: "Корзина"
+    carts: "Список корзин"
+    store: "Каталог"
+    menu: "Меню"
+    orders: "Заказы"
+    actions: "Действия"
+  carts:
+    show_cart: "Показать корзину"
+    new_cart: "Новая корзина"
+    empty_cart: "Корзина пуста, добавьте товары"
+    new_order: "Оформить заказ"
+  order:
+    name: "Имя"
+    address: "Адрес"
+    email: "Почта"
+    payment_type: "Тип оплаты"
+    choose_payment_type: "Выберите тип оплаты"
+    new: "Новый заказ"
+    debit_card: "Дебетовая карта"
+    credit_card: "Кредитная карта"
+    update: "Редактирование заказа"
+  mail:
+    you_ordered: "Вы заказали"
+
+
+
+
+
+

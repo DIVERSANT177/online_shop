@@ -9,7 +9,7 @@ class Order < ApplicationRecord
     end
   end
 
-  PAYMENT_TYPES = [ "Дебетовая карта", "Кредитная карта" ]
+  PAYMENT_TYPES = [ I18n.t("order.debit_card"), I18n.t("order.credit_card")  ]
 
   validates :name, :address, :email, presence: true
   validates :pay_type, inclusion: PAYMENT_TYPES
