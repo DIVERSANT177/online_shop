@@ -2,10 +2,10 @@ require "test_helper"
 
 class LineItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @line_item = line_items(:one)
-
-    @test1 = products(:ruby)
-    @cart1 = carts(:one)
+    self.use_transactional_tests = true
+    @line_item = line_items(:item_one)
+    @test1 = products(:ruby_book)
+    @cart1 = carts(:cart_one)
   end
 
   test "should get index" do
@@ -50,6 +50,6 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
       delete line_item_url(LineItem.last.id)
     end
 
-    assert_redirected_to store_index_path
+    assert_redirected_to store_index_path(locale: I18n.locale)
   end
 end

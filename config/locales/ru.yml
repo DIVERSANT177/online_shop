@@ -6,6 +6,8 @@ ru:
     price: "Цена за ед."
     sum_price_product: "Итого по позиции"
     sum_price: "Итого"
+    description: "Описание"
+    image: "Ссылка на фото"
   btn:
     new: "Создать"
     form: "Оформить"
@@ -28,6 +30,7 @@ ru:
     menu: "Меню"
     orders: "Заказы"
     actions: "Действия"
+    products: "Продукты"
   carts:
     show_cart: "Показать корзину"
     new_cart: "Новая корзина"

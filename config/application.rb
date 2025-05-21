@@ -27,5 +27,7 @@ module OnlineShop
     #
     config.i18n.default_locale = :ru
     config.i18n.available_locales = [ :en, :ru ]
+
+    config.assets.paths << Rails.root.join("lib/assets")
   end
 end

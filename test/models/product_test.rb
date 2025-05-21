@@ -24,11 +24,11 @@ class ProductTest < ActiveSupport::TestCase
                           image_url: "aaa.jpg")
     product.price = -1
     assert product.invalid?
-    assert_equal "must be greater than or equal to 0.01",
+    assert_equal "может иметь значение большее или равное 0.01",
     product.errors[:price].join("; ")
     product.price = 0
     assert product.invalid?
-    assert_equal "must be greater than or equal to 0.01",
+    assert_equal "может иметь значение большее или равное 0.01",
     product.errors[:price].join("; ")
     product.price = 1
     assert product.valid?
@@ -49,11 +49,11 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "product is not valid without a unique title" do
-    product = Product.new(title: products(:ruby).title,
+    product = Product.new(title: products(:ruby_book).title,
                           description: "yyy",
                           price: 1,
                           image_url: "fred.gif")
     assert !product.save
-    assert_equal "has already been taken", product.errors[:title].join("; ")
+    assert_equal "уже существует", product.errors[:title].join("; ")
   end
 end

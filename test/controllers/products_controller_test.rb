@@ -1,8 +1,13 @@
 require "test_helper"
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @product = products(:one)
+    @admin = users(:admin_user)
+    sign_in @admin
+    self.use_transactional_tests = true
+    @product = products(:ruby_book)
     @update = {
       title: "Lorem Ipsum",
       description: "Описание",

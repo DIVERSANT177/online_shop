@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   before_action :set_line_item, only: %i[ show edit update destroy ]
-
+  include ApplicationHelper
   # GET /line_items or /line_items.json
   def index
     @line_items = LineItem.all
@@ -24,6 +24,7 @@ class LineItemsController < ApplicationController
     @cart = current_cart
     product = Product.find(params[:product_id])
     @line_item = @cart.add_product(product.id)
+
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to store_index_url }
@@ -54,7 +55,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy!
     respond_to do |format|
-      format.html { redirect_to store_index_url, status: :see_other, notice: "Позиция удалена" }
+      format.html { redirect_to store_index_url(locale: I18n.locale), status: :see_other, notice: "Позиция удалена" }
       format.json { head :no_content }
     end
   end

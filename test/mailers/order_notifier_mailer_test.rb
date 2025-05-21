@@ -1,8 +1,9 @@
 require "test_helper"
 
 class OrderNotifierMailerTest < ActionMailer::TestCase
+  include ApplicationHelper
   setup do
-    @order = orders(:one)
+    @order = orders(:order_one)
   end
   test "received" do
     mail = OrderNotifierMailer.received(@order)

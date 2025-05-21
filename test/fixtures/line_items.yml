@@ -1,11 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  product_id: 1
-  cart_id: 1
-  order: 1
+item_one:
+  product: ruby_book
+  cart: cart_one
+  order: order_one
+  quantity: 2
 
-two:
-  product_id: 2
-  cart_id: 1
-  order: 2
+item_two:
+  product: rails_book
+  cart: cart_one
+  order: order_two
+  quantity: 1

@@ -1,12 +1,18 @@
 require "test_helper"
 
 class UserStoriesTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+  include ApplicationHelper
+  # include "helpers/application_helper"
   fixtures :products
 
   test "buying a product" do
+    @admin = users(:admin_user)
+    sign_in @admin
+
     LineItem.delete_all
     Order.delete_all
-    ruby_book = products(:ruby)
+    ruby_book = products(:ruby_book)
 
     get "/store/index"
     assert_response :success

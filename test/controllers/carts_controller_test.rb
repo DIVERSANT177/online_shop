@@ -1,8 +1,13 @@
 require "test_helper"
 
 class CartsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @cart = carts(:one)
+    @admin = users(:admin_user)
+    sign_in @admin
+    self.use_transactional_tests = true
+    @cart = carts(:cart_one)
   end
 
   test "should get index" do
@@ -39,7 +44,7 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy cart" do
-    post line_items_url, params: { product_id: products(:ruby).id }
+    post line_items_url, params: { product_id: products(:ruby_book).id }
     assert_difference("Cart.count", -1) do
       delete cart_path(@cart[:id])
     end

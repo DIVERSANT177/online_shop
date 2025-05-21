@@ -6,6 +6,8 @@ en:
     price: "Price per unit"
     sum_price_product: "Total for the item"
     sum_price: "Total"
+    description: "Description"
+    image: "Image link"
   btn:
     new: "Create"
     form: "Place Order"
@@ -28,6 +30,7 @@ en:
     menu: "Menu"
     orders: "Orders"
     actions: "Actions"
+    products: "Products"
   carts:
     show_cart: "Show Cart"
     new_cart: "New Cart"

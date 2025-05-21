@@ -2,17 +2,18 @@
 
 <% content_for :title, "Products" %>
 
-<h1>Продукты</h1>
 
-<div id="products">
+
+<div id="products" class="container my-5">
+  <h1><%= t('pages.products') %></h1>
   <table class="table">
   <thead>
     <tr>
-      <th scope="col">Название</th>
-      <th scope="col">Описание</th>
-      <th scope="col">Ссылка на фото</th>
-      <th scope="col">Цена</th>
-      <th scope="col">Действия</th>
+      <th scope="col"><%= t('product.name') %></th>
+      <th scope="col"><%= t('product.description') %></th>
+      <th scope="col"><%= t('product.image') %></th>
+      <th scope="col"><%= t('product.price') %></th>
+      <th scope="col"><%= t('pages.actions') %></th>
     </tr>
   </thead>
   <tbody>
@@ -23,5 +24,5 @@
   </table>
 </div>
 <div class="text-center">
-  <%= link_to "Новый товар", new_product_path, class: "btn btn-success" %>
+  <%= link_to t('btn.new'), new_product_path, class: "btn btn-success" %>
 </div>

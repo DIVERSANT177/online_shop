@@ -13,6 +13,7 @@
             </tr>
         </thead>
         <tbody id="cart-items">
+          <% debugger %>
           <%= render partial: 'line_items/line_item', collection: @order.line_items, as: :line_item %>
         </tbody>
     </table>

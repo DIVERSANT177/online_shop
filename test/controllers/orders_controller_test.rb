@@ -1,8 +1,13 @@
 require "test_helper"
 
 class OrdersControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @order = orders(:one)
+    @admin = users(:admin_user)
+    sign_in @admin
+    self.use_transactional_tests = true
+    @order = orders(:order_one)
   end
 
   test "should get index" do
@@ -11,7 +16,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    post line_items_url, params: { product_id: products(:ruby).id }
+    post line_items_url, params: { product_id: products(:ruby_book).id }
     get new_order_url
     assert_response :success
   end

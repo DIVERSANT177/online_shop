@@ -1,29 +1,39 @@
-<div class="w-full">
-    <% if notice.present? %>
-        <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg" id="notice">
-            <%= notice %>
-        </p>
-    <% end %>
-</div>
 
 <div class="m-3 store"> 
-    <h1 class="font-bold text-xl mb-5 pb-2 border-b-2"><%= t('pages.store') %></h1>
-    <ul class="list-unstyled">
-        <% @products.each do |product| %>
-            <li class="d-flex mb-5 gap-3">
-                <%= image_tag(product.image_url, data: { product_id: product.id }, class: 'object-fit-contain w-25 shadow mr-5') %>
-                <div>
-                    <h2 class="font-bold text-lg mb-3"><%= product.title %></h2>
-                    <p>
-                        <%= sanitize(product.description) %>
-                    </p>
-                    <div class="price mt-3">
-                        <%= number_to_currency(product.price) %>
+    <div class="container my-5">
+        <div class="w-full">
+            <% if notice.present? %>
+                <p class="" id="notice">
+                    <%= notice %>
+                </p>
+            <% end %>
+        </div>
+        <h1 class="font-bold text-xl mb-5 pb-2 border-b-2"><%= t('pages.store') %></h1>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+            <% @products.each do |product| %>
+                <div class="col">
+                    <div class="card h-100">
+                        <% asset_path = ActionController::Base.helpers.asset_path(product.image_url) rescue nil %>
+                        <% if asset_path %>
+                            <%= image_tag(product.image_url, data: { product_id: product.id }, class: 'card-img-top') %>
+                        <% else %>
+                            <div class="bg-secondary h-50 d-flex align-items-center justify-content-center card-img-top">
+                                <i class="fa-solid fa-camera w-50 h-50"></i>
+                            </div>
+                            
+                        <% end %>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title"><%= product.title %></h5>
+                            <p class="card-text"><%= product.description %></p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <span class="fw-bold price"><%= number_to_currency(set_currency(product.price)) %></span>
+                                <%= button_to t('btn.add_to_cart'), line_items_path(product_id: product.id, locale: I18n.locale), class: "btn btn-primary btn-sm", remote: true, data: { turbo: false }%>
+                            </div>
+                        </div>
                     </div>
-                    <%= button_to t('btn.add_to_cart'), line_items_path(product_id: product.id), class: "btn btn-primary", remote: true, data: { turbo: false }%>
                 </div>
-            </li>
-        <% end %>
-    </ul>
+            <% end %>
+        </div>
+    </div>
 </div>
    

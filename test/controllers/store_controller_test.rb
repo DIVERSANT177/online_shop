@@ -4,9 +4,8 @@ class StoreControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get store_index_url
     assert_response :success
-    assert_select "nav a", minimum: 4
-    assert_select "ul li", 3
-    assert_select "h2", "ruby"
-    assert_select ".price", /\$[,\d]+\.\d\d/
+    assert_select ".dropdown", 1
+    assert_select "ul li", 2
+    assert_select ".price", /\d{1,3}(?:\s\d{3})*,\d{2}\sруб\./
   end
 end
