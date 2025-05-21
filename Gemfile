@@ -30,7 +30,12 @@ gem "cancancan"
 
 gem "rails-i18n", "~> 7.0.0"
 
+gem "http_logger"
+
+gem "logger"
+
 # gem "font-awesome-sass", git: "https://github.com/FortAwesome/font-awesome-sass.git", branch: "main"
+
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -47,7 +52,7 @@ gem "solid_cable"
 gem "bootsnap", require: false
 
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
-gem "kamal", require: false
+# gem "kamal", require: false
 
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
@@ -71,6 +76,14 @@ group :development do
   gem "web-console"
 
   gem "letter_opener"
+
+  gem "capistrano3-puma", require: false
+
+  gem "capistrano-bundler", require: false
+
+  gem "capistrano-rails", require: false
+
+  gem "capistrano-rvm", require: false
 end
 
 group :test do
