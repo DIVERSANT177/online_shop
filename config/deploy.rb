@@ -4,7 +4,7 @@ lock "~> 3.19.2"
 set :application, "Online_shop"
 set :repo_url, "git@github.com:DIVERSANT177/online_shop.git"
 set :puma_bind, "unix://#{shared_path}/tmp/sockets/puma.sock"
-append :linked_dirs, "log", "tmp", "public/uploads", "public/packs", "node_modules", "storage"
+# append :linked_dirs, "log", "tmp", "public/uploads", "public/packs", "node_modules", "storage"
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
