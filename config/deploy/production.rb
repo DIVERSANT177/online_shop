@@ -12,7 +12,7 @@ set :tmp_dir, "/home/ivan_yakunin/tmp"
 set :keep_releases, 5
 
 set :puma_systemctl_user, :system
-set :puma_service_unit_name, "puma_production.service"
+set :puma_service_unit_name, "puma_production"
 
 set :bundle_flags, "--no-cache"
 
