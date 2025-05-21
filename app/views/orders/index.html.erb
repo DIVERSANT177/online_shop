@@ -1,25 +1,27 @@
-<p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Orders" %>
+<div class="container">
+    <p style="color: green"><%= notice %></p>
 
-<h1><%= t('pages.orders') %></h1>
+    <% content_for :title, "Orders" %>
+    <h1><%= t('pages.orders') %></h1>
 
-<div class="table-responsive">
-    <table class="table table-bordered table-hover">
-        <thead class="table-dark">
-            <tr>
-                <th><%= t('order.name') %></th>
-                <th><%= t('order.address') %></th>
-                <th><%= t('order.email') %></th>
-                <th><%= t('order.payment_type') %></th>
-                <% if current_user.admin? %>
-                    <th><%= t('pages.actions') %></th>
-                <% end %>
-            </tr>
-        </thead>
-        <tbody id="orders-items">
-          <%= render @orders %>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th><%= t('order.name') %></th>
+                    <th><%= t('order.address') %></th>
+                    <th><%= t('order.email') %></th>
+                    <th><%= t('order.payment_type') %></th>
+                    <% if current_user.admin? %>
+                        <th><%= t('pages.actions') %></th>
+                    <% end %>
+                </tr>
+            </thead>
+            <tbody id="orders-items">
+            <%= render @orders %>
+            </tbody>
+        </table>
+    </div>
+    <p><%= paginate @orders %></p>
 </div>
-<p><%= paginate @orders %></p>

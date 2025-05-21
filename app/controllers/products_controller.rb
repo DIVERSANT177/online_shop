@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   load_and_authorize_resource
   # GET /products or /products.json
   def index
+    @cart = current_cart
     @products = Product.all
   end
 

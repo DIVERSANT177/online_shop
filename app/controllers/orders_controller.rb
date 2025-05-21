@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
+    @cart = current_cart
     if current_user.admin?
       @orders = Order.order(created_at: :desc).page(params[:page]).per(10)
     else
