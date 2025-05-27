@@ -24,63 +24,10 @@
   </head>
 
   <body class="<%= controller.controller_name %>">
-    <header class="bg-light py-3 mb-4">
-      <div class="container d-flex align-items-center justify-content-between">
-      <!-- Логотип -->
-        <a href="<%= store_index_url %>" class="d-block"><%= image_tag("logo.png", height: 50) %></a>
-
-        <!-- Навигационные ссылки -->
-        <nav class="d-flex gap-4 align-items-center">
-          <a href="<%= store_index_url %>" class="text-decoration-none text-dark"><%= t('pages.store') %></a>
-          <% if current_user&.admin? %>
-          <a href="<%= products_url %>" class="text-decoration-none text-dark"><%= t('pages.products') %></a>
-          <a href="<%= orders_url %>" class="text-decoration-none text-dark"><%= t('pages.orders') %></a>
-          <% end %>
-        </nav>
-
-        
-        
-        <div class="d-flex align-items-center">
-          <div class="me-5">
-            <% I18n.available_locales.each do |locale| %>
-              <%= link_to t("#{locale}"), url_for(locale: locale), class: "text-decoration-none me-3".concat( (' fw-bold text-dark' if locale == I18n.locale).presence || '') %>
-            <% end %>
-          </div>
-
-          <a class="me-5 text-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
-            <i class="fa-solid fa-cart-shopping fs-4"></i>
-          </a>
-
-          <div class="dropdown">
-            <i
-              class="fa-solid fa-user fs-5"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              style="cursor: pointer;"
-            ></i>
-
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-              <li><%= link_to t('pages.orders'), orders_path, class: "dropdown-item" %></li>
-              <li><%= link_to t('btn.log_out'), destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
-            </ul>
-          </div>
-        </div>
-        
-
-        <!-- Боковое меню (Offcanvas) -->
-        <div class="offcanvas offcanvas-start w-100" tabindex="-1" id="sidebarMenu">
-          <div class="offcanvas-header">
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-          </div>
-          <div class="offcanvas-body">
-            <div id="cart">
-              <%= render(@cart) unless @cart.nil? %>
-            </div>
-          </div>
-        </div>
-      </div>
-  </header>
+    <% unless devise_controller? %>
+      <%= render 'layouts/header' %>
+    <% end %>
+    
 
   <div id="main">
       <%= yield %>

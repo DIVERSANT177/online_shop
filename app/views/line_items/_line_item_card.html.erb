@@ -1,0 +1,24 @@
+<%# app/views/line_items/_line_item_card.html.erb %>
+<div class="col-sm-12 col-md-6 col-lg-4">
+  <div class="card shadow-sm h-100">
+    <div class="card-body">
+      <h5 class="card-title">
+        <i class="fas fa-box-open me-2"></i><strong><%= line_item.product.title %></strong>
+      </h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <i class="fas fa-hashtag me-2"></i><span><%= t('product.count') %></span>
+          <span class="badge bg-primary rounded-pill"><%= line_item.quantity %></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <i class="fas fa-money-bill-wave me-2"></i><span><%= t('product.price') %></span>
+          <span class="badge bg-success rounded-pill"><%= number_to_currency(set_currency(line_item.product.price)) %></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <i class="fas fa-calculator me-2"></i><span><%= t('product.sum_price_product') %></span>
+          <span class="badge bg-info rounded-pill"><%= number_to_currency(set_currency(line_item.total_price)) %></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

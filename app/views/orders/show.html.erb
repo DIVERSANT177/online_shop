@@ -1,17 +1,21 @@
-<p style="color: green"><%= notice %></p>
-<table class="table table-bordered table-hover">
-  <thead class="table-dark">
-      <tr>
-          <th><%= t('product.name') %></th>
-          <th><%= t('product.count') %></th>
-          <th><%= t('product.price') %></th>
-          <th><%= t('product.sum_price_product') %></th>
-      </tr>
-  </thead>
-  <tbody id="cart-items">
-    <%= render partial: 'line_items/line_item', collection: @order.line_items, as: :line_item %>
-  </tbody>
-</table>
-<div class="text-center">
-  <%= link_to t('btn.back'), orders_path, class: "btn btn-light" %>
+<div class="container py-4">
+  <!-- Уведомление -->
+  <% if notice %>
+    <div class="alert alert-success text-center" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <!-- Заголовок -->
+  <h2 class="mb-4 text-center"><%= t('order.order_details') %></h2>
+
+  <!-- Карточки товаров в заказе -->
+  <div id="cart-items" class="row g-4 justify-content-center">
+    <%= render partial: 'line_items/line_item_card', collection: @order.line_items, as: :line_item %>
+  </div>
+
+  <!-- Кнопка назад -->
+  <div class="text-center mt-4">
+    <%= link_to "<i class='fas fa-arrow-left'></i> #{t('btn.back')}".html_safe, orders_path, class: "btn btn-light" %>
+  </div>
 </div>

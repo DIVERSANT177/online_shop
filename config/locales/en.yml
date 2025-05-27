@@ -3,8 +3,8 @@ en:
   product:
     name: "Product Name"
     count: "Quantity"
-    price: "Price per unit"
-    sum_price_product: "Total for the item"
+    price: "Price"
+    sum_price_product: "Total"
     sum_price: "Total"
     description: "Description"
     image: "Image link"

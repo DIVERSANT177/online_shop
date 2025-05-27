@@ -3,8 +3,8 @@ ru:
   product:
     name: "Название товара"
     count: "Количество"
-    price: "Цена за ед."
-    sum_price_product: "Итого по позиции"
+    price: "Цена"
+    sum_price_product: "Итого"
     sum_price: "Итого"
     description: "Описание"
     image: "Ссылка на фото"
