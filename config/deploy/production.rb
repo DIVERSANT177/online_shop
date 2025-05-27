@@ -11,7 +11,7 @@ set :deploy_to, "/home/ivan_yakunin/shop"
 set :tmp_dir, "/home/ivan_yakunin/tmp"
 set :keep_releases, 5
 
-set :puma_systemctl_user, :system
+# set :puma_systemctl_user, :system
 set :puma_service_unit_name, "puma_production"
 
 set :bundle_flags, "--no-cache"
@@ -25,7 +25,7 @@ set :rvm_type, :user
 set :rvm_ruby_version, RUBY_VERSION
 
 append :linked_files, "config/credentials/production.key"
-
+append :linked_dirs, "log", "tmp/pids", "tmp/sockets"
 # namespace :deploy do
 #   task restart: "monit:restart"
 # end
