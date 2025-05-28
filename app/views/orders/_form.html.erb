@@ -1,37 +1,47 @@
-<%= form_with(model: order) do |form| %>
-  <% if order.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<div class="d-flex align-items-center justify-content-center">
+  <div class="w-100" style="max-width: 400px;">
+    <h2 class="text-center mb-4"><%= t('order.new') %></h2>
 
-      <ul>
-        <% order.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= form_with(model: @order) do |form| %>
+      <% if @order.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <strong><%= pluralize(@order.errors.count, t('error')) %> <%= t('order.prevented_saving') %>:</strong>
+          <ul class="mb-0">
+            <% @order.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div>
-    <%= form.label t('order.name'), style: "display: block", class: "form-label" %>
-    <%= form.text_field :name, size: 40, class: "form-control" %>
+      <!-- Name -->
+      <div class="mb-3">
+        <%= form.label :name, t('order.name'), class: "form-label" %>
+        <%= form.text_field :name, class: "form-control"%>
+      </div>
+
+      <!-- Address -->
+      <div class="mb-3">
+        <%= form.label :address, t('order.address'), class: "form-label" %>
+        <%= form.text_area :address, rows: 3, class: "form-control" %>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <%= form.label :email, t('order.email'), class: "form-label" %>
+        <%= form.email_field :email, class: "form-control" %>
+      </div>
+
+      <!-- Payment Type -->
+      <div class="mb-3">
+        <%= form.label :pay_type, t('order.payment_type'), class: "form-label" %>
+        <%= form.select :pay_type, Order::PAYMENT_TYPES, { prompt: t('order.choose_payment_type') }, { class: "form-select" } %>
+      </div>
+
+      <!-- Submit -->
+      <div class="d-grid mt-3">
+        <%= form.submit t('btn.form'), class: "btn btn-primary btn-lg w-100" %>
+      </div>
+    <% end %>
   </div>
-
-  <div>
-    <%= form.label t('order.address'), style: "display: block", class: "form-label" %>
-    <%= form.text_area :address, rows: 3, size: 40, class: "form-control" %>
-  </div>
-
-  <div>
-    <%= form.label t('order.email'), style: "display: block", class: "form-label" %>
-    <%= form.email_field :email, size: 40, class: "form-control" %>
-  </div>
-
-  <div class="mb-3">
-    <%= form.label t('btn.form'), style: "display: block", class: "form-label" %>
-    <%= form.select :pay_type, Order::PAYMENT_TYPES, { prompt: t('order.choose_payment_type') }, { class: "form-select" } %>
-  </div>
-
-  <div class="mt-3 text-center">
-    <%= form.submit t('btn.form'), class: "btn btn-primary" %>
-  </div>
-<% end %>
+</div>

@@ -13,6 +13,7 @@ class Ability
   def user_rules
     can :read, Order, user: user
     can :create, Order
+    can :destroy, Cart
     cannot :manage, Admin
   end
 

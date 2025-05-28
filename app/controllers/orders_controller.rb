@@ -1,15 +1,17 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   load_and_authorize_resource
 
   # GET /orders or /orders.json
   def index
     @cart = current_cart
-    if current_user.admin?
+    if current_user&.admin?
       @orders = Order.order(created_at: :desc).page(params[:page]).per(10)
-    else
+    elsif current_user
       @orders = current_user.orders.order(created_at: :desc).page(params[:page]).per(10)
+    else
+      redirect_to new_user_session_path
     end
 
     respond_to do |format|
