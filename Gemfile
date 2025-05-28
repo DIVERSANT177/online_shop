@@ -34,7 +34,9 @@ gem "http_logger"
 
 gem "logger"
 
-gem "letter_opener", group: [ :development, :production ]
+gem "letter_opener"
+
+gem "letter_opener_web"
 # gem "font-awesome-sass", git: "https://github.com/FortAwesome/font-awesome-sass.git", branch: "main"
 
 
