@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount LetterOpenerWeb::Engine, at: "/letter_opener"
   devise_for :users
   authenticate :user, ->(user) { user.admin? } do
     namespace :admin do
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
 
       root to: "carts#index"
     end
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
   scope "(:locale)" do
